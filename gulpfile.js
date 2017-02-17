@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var concat = require('gulp-concat');
-var minify = require('gulp-uglify');
+var uglify = require('gulp-uglify');
 var utilities = require('gulp-util')
 var buildProduction = utilities.env.production;
 var lib = require('bower-files')({
@@ -18,7 +18,7 @@ var lib = require('bower-files')({
 });
 var del = require('del');
 var browserSync = require('browser-sync')
-var jshint = require('jshint');
+var jshint = require('gulp-jshint');
 
 gulp.task('jsBrowserify', ['concatInterface'], function() {
   return browserify({ entries: ['./tmp/allConcat.js'] })

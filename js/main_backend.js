@@ -1,11 +1,12 @@
 var apiKey = require('./../.env').apiKey;
 
-function Account_name(){}
+function AccountName(){}
 
-Account_name.prototype.getDetails = function (name, description) {
+AccountName.prototype.getDetails = function (name, description) {
   exports.getRepos = function(){
-    $.get('https://api.github.com/users/'+ name +'?access_token=' + apiKey).then(function(response){
-      console.log(response);
+    $.get('https://api.github.com/users/'+name+'?access_token=' + apiKey).then(function(response){
+      console.log(JSON.stringify(response));
+      displayFunction(name, response);
     }).fail(function(error){
       console.log(error.responseJSON.message);
     });
