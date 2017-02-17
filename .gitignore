@@ -1,0 +1,6 @@
+.DS_Store
+.env
+bower.components/
+build/
+node_modules/
+tmp/
