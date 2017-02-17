@@ -13,8 +13,7 @@ AccountName.prototype.getDetails = function (name, description) {
       reposArray.push(response[key].name);
       }
       // how to use jquery response.each();
-      console.log(reposArray);
-      description(name, response);
+      description(name, reposArray);
     }).fail(function(error){
       console.log(error.responseJSON.message);
     });

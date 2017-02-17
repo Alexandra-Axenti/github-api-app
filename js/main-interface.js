@@ -1,19 +1,23 @@
 var AccountName  = require('./../js/main_backend.js').accountModule;
 
 var displayRepos = function(name, reposList) {
-  $('.showList').text("GitHub User" + name + "holds the following repos:"+ reposList);
+
+  $('.showList').text("GitHub User " + name + " holds the following repos:    ");
+  var answer = reposList.forEach(function(element) {
+  $('#solution').append("<li>" + element + "</li>");
+  });
 };
 
 // console.log(reposArray);
 
-
 $(document).ready(function(){
-// console.log('js ready');
   var currentUserObject = new AccountName();
   $('#nameDetails').click(function(){
       // event.preventDefault();
-    var name = $('#account_name').val();
-    $('#account_name').val("");
-    currentUserObject.getDetails(name, displayRepos);
+      $('#solution').text("");
+      var name = $('#account_name').val();
+      $('#account_name').val("");
+
+      currentUserObject.getDetails(name, displayRepos);
   });
 });
